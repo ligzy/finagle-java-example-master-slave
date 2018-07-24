@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.proto</groupId>
@@ -11,6 +12,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<scala.binary.version>2.12</scala.binary.version>
+		<finagle.version>18.7.0</finagle.version>
+
 	</properties>
 
 	<build>
@@ -127,18 +131,12 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>scala-tools.org</id>
-			<name>Scala-tools Maven2 Repository</name>
-			<url>http://scala-tools.org/repo-releases</url>
-		</repository>
-		<repository>
-			<id>twitter</id>
-			<url>http://maven.twttr.com/</url>
-		</repository>
+		<!-- <repository> <id>scala-tools.org</id> <name>Scala-tools Maven2 Repository</name> 
+			<url>http://scala-tools.org/repo-releases</url> </repository> <repository> 
+			<id>twitter</id> <url>http://maven.twttr.com/</url> </repository> -->
 		<repository>
 			<id>mvnrepository</id>
-			<url>http://mvnrepository.com/</url>
+			<url>https://mvnrepository.com/</url>
 		</repository>
 		<repository>
 			<id>mavennrepo1</id>
@@ -155,23 +153,23 @@
 		</dependency>
 		<dependency>
 			<groupId>com.twitter</groupId>
-			<artifactId>finagle-core</artifactId>
-			<version>6.6.2</version>
+			<artifactId>finagle-core_${scala.binary.version}</artifactId>
+			<version>${finagle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twitter</groupId>
-			<artifactId>finagle-http</artifactId>
-			<version>6.6.2</version>
+			<artifactId>finagle-http_${scala.binary.version}</artifactId>
+			<version>${finagle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twitter</groupId>
-			<artifactId>finagle-redis</artifactId>
-			<version>6.6.2</version>
+			<artifactId>finagle-redis_${scala.binary.version}</artifactId>
+			<version>${finagle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twitter</groupId>
-			<artifactId>finagle-serversets</artifactId>
-			<version>6.6.2</version>
+			<artifactId>finagle-serversets_${scala.binary.version}</artifactId>
+			<version>${finagle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
@@ -193,11 +191,8 @@
 			<artifactId>spymemcached</artifactId>
 			<version>2.11.6</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
-			<version>1.10</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>commons-configuration</groupId> <artifactId>commons-configuration</artifactId> 
+			<version>1.10</version> </dependency> -->
 	</dependencies>
 
 	<profiles>
